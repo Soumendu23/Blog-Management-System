@@ -1,53 +1,20 @@
 {
   "name": "blog-management-system",
-  "version": "1.0.0",
-  "description": "Blog Management System",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "test"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Soumendu23"
-  },
-  "keywords": [
-    "blog"
-  ],
-  "author": "Soumendu",
-  "license": "ISC",
   "dependencies": {
-    "aws-sdk": "~2.1008.0",
-    "axios": "~0.21.1",
-    "bcrypt": "5.0.0",
-    "cors": "~2.8.5",
-    "dayjs": "~1.10.7",
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "dotenv": "~8.2.0",
-    "ejs": "~3.1.6",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "express-list-endpoints": "~5.0.0",
-    "express-rate-limit": "~5.2.6",
-    "extract-zip": "~2.0.1",
-    "joi": "~17.3.0",
+    "http-errors": "~1.6.3",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.10.3",
-    "mongoose-id-validator": "~0.6.0",
-    "mongoose-paginate-v2": "~1.3.12",
-    "mongoose-unique-validator": "~3.0.0",
+    "mongoose": "^7.0.3",
     "morgan": "~1.9.1",
-    "nodemailer": "~6.7.2",
-    "passport": "^0.6.0",
-    "passport-jwt": "~4.0.0",
-    "postman-to-openapi": "~2.2.0 ",
-    "swagger-ui-express": "~4.3.0",
-    "uuid": "~8.3.2",
-    "yamljs": "~0.3.0"
-  },
-  "devDependencies": {
-    "eslint": "~8.10.0",
-    "eslint-plugin-import": "~2.25.4",
-    "jest": "~27.0.6",
-    "nodemon": "^2.0.18",
-    "supertest": "~6.1.3"
+    "pug": "^2.0.4"
   }
 }
