@@ -3,29 +3,42 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors');
+const passport = require('passport');
+// var indexRouter = require('./routes/index');
+var usersRouter = require('./routes');
+const listEndpoints = require('express-list-endpoints');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/user');
+const { devicePassportStrategy } = require('./config/devicePassportStrategy');
+const { adminPassportStrategy } = require('./config/adminPassportStrategy');
 
 var app = express();
 
+
 require("dotenv")
   .config();
+ mongoose = require("mongoose");
 
-  mongoose = require("mongoose");
 
-// view engine setup
+
+
+ // view engine setup
+
+
+ const corsOptions = { origin: process.env.ALLOW_ORIGIN, };
+app.use(cors(corsOptions));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('./utils/response/responseHandler'));
 
-app.use('/', indexRouter);
-app.use('/user', usersRouter);
 
 //Connect to database
 try {
@@ -47,6 +60,8 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }));
+
+app.use(usersRouter);
 
 
 // catch 404 and forward to error handler
